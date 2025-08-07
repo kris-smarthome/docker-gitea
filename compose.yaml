@@ -42,9 +42,9 @@ services:
     security_opt:
       - no-new-privileges:true
     environment:
-      - POSTGRES_USER=gitea
-      - POSTGRES_PASSWORD=gitea
-      - POSTGRES_DB=gitea
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWD}
+      - POSTGRES_DB=${DB_NAME}
     volumes:
       - postgres:/var/lib/postgresql/data
     networks:
