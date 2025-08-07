@@ -18,7 +18,7 @@ services:
       - GITEA__database__PASSWD=${DB_PASSWD}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.gitea.rule=Host(`git.evillabs.io`)
+      - traefik.http.routers.gitea.rule=Host(`${HTTPS_HOSTNAME}`)
       - traefik.http.routers.gitea.entrypoints=websecure
       - traefik.http.routers.gitea.tls.certresolver=letsencrypt
       - traefik.http.services.gitea.loadbalancer.server.port=3000
