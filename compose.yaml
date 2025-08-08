@@ -64,7 +64,7 @@ services:
       GITEA_RUNNER_NAME: "giteas-runner"
     volumes:
       - runner_data:/data
-      - runner_config:/config
+      - ./config.yaml:/config.yaml
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - gitea
@@ -77,8 +77,6 @@ volumes:
   postgres:
     driver: local
   runner_data:
-    driver: local
-  runner_config:
     driver: local
 
 networks:
