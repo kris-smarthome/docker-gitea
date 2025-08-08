@@ -63,7 +63,7 @@ services:
       GITEA_RUNNER_REGISTRATION_TOKEN: ${GITEA_RUNNER_REGISTRATION_TOKEN}
       GITEA_RUNNER_NAME: "giteas-runner"
     volumes:
-      - runner_data:/data
+      - runner:/data
       - ./config.yaml:/config.yaml
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
@@ -76,7 +76,7 @@ volumes:
     driver: local
   postgres:
     driver: local
-  runner_data:
+  runner:
     driver: local
 
 networks:
