@@ -52,7 +52,7 @@ services:
       - gitea
 
   gitea-runner:
-    image: docker.gitea.com/gitea/runner:latest
+    image: docker.gitea.com/gitea/runner
     container_name: gitea-runner
     restart: unless-stopped
     security_opt:
