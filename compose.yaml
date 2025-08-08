@@ -59,7 +59,7 @@ services:
       - no-new-privileges:true
     environment:
       CONFIG_FILE: /config.yaml
-      GITEA_INSTANCE_URL: gitea:3000
+      GITEA_INSTANCE_URL: ${HTTPS_HOSTNAME}
       GITEA_RUNNER_REGISTRATION_TOKEN: ${GITEA_RUNNER_REGISTRATION_TOKEN}
       GITEA_RUNNER_NAME: "giteas-runner"
     volumes:
