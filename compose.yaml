@@ -52,7 +52,7 @@ services:
       - gitea
 
   gitea-runner:
-    image: docker.gitea.com/gitea/runner
+    image: gitea/act_runner
     container_name: gitea-runner
     restart: unless-stopped
     security_opt:
@@ -69,6 +69,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - gitea
+    depends_on:
+      gitea:
 
 volumes:
   gitea:
