@@ -58,14 +58,13 @@ services:
     security_opt:
       - no-new-privileges:true
     environment:
-      - GITEA_INSTANCE_URL=gitea:3000
-      # When using Docker Secrets, it's also possible to use
-      # GITEA_RUNNER_REGISTRATION_TOKEN_FILE to pass the location.
-      # The env var takes precedence.
-      # Needed only for the first start.
-      - GITEA_RUNNER_REGISTRATION_TOKEN=<${GITEA_RUNNER_REGISTRATION_TOKEN}
+      CONFIG_FILE: /config.yaml
+      GITEA_INSTANCE_URL: gitea:3000
+      GITEA_RUNNER_REGISTRATION_TOKEN: ${GITEA_RUNNER_REGISTRATION_TOKEN}
+      GITEA_RUNNER_NAME: "giteas-runner"
     volumes:
       - runner_data:/data
+      - runner_config:/config
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - gitea
@@ -78,6 +77,8 @@ volumes:
   postgres:
     driver: local
   runner_data:
+    driver: local
+  runner_config:
     driver: local
 
 networks:
