@@ -65,7 +65,7 @@ services:
       # Needed only for the first start.
       - GITEA_RUNNER_REGISTRATION_TOKEN=<${GITEA_RUNNER_REGISTRATION_TOKEN}
     volumes:
-      - runner_data/act_runner:/data
+      - runner_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - gitea
